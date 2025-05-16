@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-    public static function allAuthors()
+    protected $fillable = ['name', 'email'];
+
+    public function books()
     {
-        return [
-            ['id' => 1, 'name' => 'J.K. Rowling'],
-            ['id' => 2, 'name' => 'Agatha Christie'],
-            ['id' => 3, 'name' => 'George R.R. Martin'],
-            ['id' => 4, 'name' => 'Jane Austen'],
-            ['id' => 5, 'name' => 'J.R.R. Tolkien'],
-        ];
+        return $this->hasMany(Book::class);
     }
 }
+
