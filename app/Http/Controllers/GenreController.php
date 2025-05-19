@@ -10,12 +10,13 @@ use function Pest\Laravel\json;
 class GenreController extends Controller
 {
     public function index() {
-        $genres = Genre::all();
+    $genres = Genre::with('books')->get();
 
-        return response()->json([
-            "success" => true,
-            "message" => "Get All Resource",
-            "data" => $genres
+    return response()->json([
+        "success" => true,
+        "message" => "Get All Genres with Books",
+        "data" => $genres
         ], 200);
     }
+
 }

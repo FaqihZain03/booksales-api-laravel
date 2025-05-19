@@ -7,14 +7,15 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index()
-    {
-        $books = Book::with(['author', 'genre'])->get();
+{
+    $books = Book::with(['author', 'genre'])->get();
 
-        return response()->json([
-            "success" => true,
-            "message" => "Get All Resource",
-            "data" => $books
-        ], 200);
-    }
+    return response()->json([
+        "success" => true,
+        "message" => "Get All Resource",
+        "data" => $books
+    ], 200);
+}
+
 }
 
